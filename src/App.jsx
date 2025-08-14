@@ -1,9 +1,13 @@
 import React from 'react'
+import Navbar from './Components/Navbar.jsx'
+import Footer from './Components/Footer.jsx'
 
 const App = () => {
   return (
-    <div className='text-bold text-2xl text-center mt-10'>
+    <div>
+      <Navbar />
       <p>Hello World</p>
+    <Footer />
     </div>
   )
 }
