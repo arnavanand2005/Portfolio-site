@@ -28,11 +28,11 @@ function App() {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form className="text-white" onSubmit={onSubmit}>
+  
         <input type="text" name="name" required/>
         <input type="email" name="email" required/>
         <textarea name="message" required></textarea>
-
         <button type="submit">Submit Form</button>
 
       </form>
