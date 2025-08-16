@@ -33,10 +33,10 @@ function App() {
       HOW TO REACH ME ...
       </h1>
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 p-4 border-black border-2 rounded-lg bg-gray-100">
-      <div>
+      <div className="flex-1">
         <img className="w-[600px] h-[625px]" src={contact_img} alt="contact-form-image" />
       </div>
-      <div>
+      <div className="flex-1 flex flex-col justify-center items-center">
         <form className="text-white " onSubmit={onSubmit}> 
           <label className="text-black "> Name : </label>
           <input className="text-black" placeholder="Enter name here..." type="text" name="name" required/> <br />
