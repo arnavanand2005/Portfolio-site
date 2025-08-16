@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar.jsx'
+import Footer from './Components/Footer.jsx'
 import Home from './Pages/Home.jsx'
 import About from './Pages/About.jsx'
 import Contact from './Pages/Contact.jsx'
@@ -17,6 +18,7 @@ const App = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
+        <Footer />
       </Router>
     </div>
   )
