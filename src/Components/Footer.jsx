@@ -8,10 +8,12 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-200 py-8 px-6 mt-6 shadow-lg">
       <div className="flex flex-col items-center gap-6 max-w-6xl mx-auto">
         
+        {/* 1. Copyright */}
         <p className="text-sm md:text-base opacity-80">
           2025 &copy; All rights reserved.
         </p>
 
+        {/* 2. Email & Phone */}
         <div className="flex flex-col sm:flex-row gap-4 text-sm md:text-base">
           <p className="flex items-center gap-2 hover:text-blue-400 transition duration-300 cursor-pointer">
             <IoIosMail className="text-lg"/> arnavanand2005@gmail.com
@@ -21,6 +23,7 @@ const Footer = () => {
           </p>
         </div>
 
+        {/* 3. Social Links */}
         <div className="flex gap-6 text-2xl">
           <a 
             href="https://www.linkedin.com/in/arnav-anand-056710315"
