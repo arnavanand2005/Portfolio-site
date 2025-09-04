@@ -4,7 +4,6 @@ import { DiPython , DiJavascript } from "react-icons/di";
 import { FaHtml5 , FaCss3Alt } from "react-icons/fa";
 import { FaReact } from "react-icons/fa6";
 import { RiTailwindCssLine } from "react-icons/ri";
-import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 import { SiMongodb , SiExpress } from "react-icons/si";
 
@@ -12,13 +11,17 @@ const About = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="px-6 py-10 md:px-16 lg:px-32 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen">
-      {/* Header */}
-      <div className="text-center">
+    <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16 text-white">
+      
+      {/* Background */}
+      <div className="absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+      
+      {/* Content */}
+      <div className="max-w-4xl text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-wide">
-          ABOUT ME
+          About Me
         </h1>
-        <p className="text-base md:text-lg leading-relaxed max-w-3xl mx-auto">
+        <p className="text-base md:text-lg leading-relaxed opacity-90">
           I’m a passionate and curious learner who enjoys building practical, user-friendly, and creative solutions. 
           With a strong foundation in programming (C, React, Python), I focus on writing clean and simplified code while 
           working on projects like front-end websites, weather apps, and many more.
@@ -34,10 +37,10 @@ const About = () => {
       </div>
 
       {/* Buttons */}
-      <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-6">
+      <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-6">
         <button 
           onClick={() => navigate('/projects')}
-          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-lg rounded-lg shadow-md hover:shadow-xl transition duration-300"
+          className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
         >
           View Projects
         </button>
@@ -46,7 +49,7 @@ const About = () => {
           href="/resume.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-6 py-3 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+          className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
         >
           <img 
             src={resume_img} 
@@ -58,21 +61,21 @@ const About = () => {
       </div>
 
       {/* Tech Stack */}
-      <div className="mt-14 text-center">
+      <div className="mt-16 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-8">My Tech Stack</h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 justify-items-center text-5xl">
-          <DiPython className="hover:text-yellow-400 transition duration-300" />
-          <FaHtml5 className="hover:text-orange-500 transition duration-300" />
-          <FaCss3Alt className="hover:text-blue-500 transition duration-300" />
-          <DiJavascript className="hover:text-yellow-300 transition duration-300" />
-          <FaReact className="hover:text-cyan-400 transition duration-300" />
-          <RiTailwindCssLine className="hover:text-sky-400 transition duration-300" />
-          <SiMongodb className="hover:text-green-500 transition duration-300" />
-          <SiExpress className="hover:text-gray-400 transition duration-300" />
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-10 justify-items-center text-5xl">
+          <DiPython className="hover:text-yellow-400 transition duration-300 cursor-pointer" />
+          <FaHtml5 className="hover:text-orange-500 transition duration-300 cursor-pointer" />
+          <FaCss3Alt className="hover:text-blue-400 transition duration-300 cursor-pointer" />
+          <DiJavascript className="hover:text-yellow-300 transition duration-300 cursor-pointer" />
+          <FaReact className="hover:text-cyan-400 transition duration-300 cursor-pointer" />
+          <RiTailwindCssLine className="hover:text-sky-400 transition duration-300 cursor-pointer" />
+          <SiMongodb className="hover:text-green-500 transition duration-300 cursor-pointer" />
+          <SiExpress className="hover:text-gray-300 transition duration-300 cursor-pointer" />
         </div>
       </div>
     </div>
   )
 }
 
-export default About;
+export default About
