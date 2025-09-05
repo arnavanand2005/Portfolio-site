@@ -18,13 +18,29 @@ const Projects = () => {
       image: "../assets/pizzeria.png",
       demo:"https://brunos-pizzeria.vercel.app",
       github:"https://github.com/arnavanand2005/Brunos-PIZZERIA"
+    },
+    {
+      title : "ReactJS To Do List",
+      description:"A simple and interactive To-Do List application built with ReactJS, allowing users to add, move tasks according to priority, and delete tasks.",
+      techStack: ["React", "CSS"],
+      image: "../assets/todo.png",
+      demo:"https://reactjs-to-do-list-9jsi.vercel.app",
+      github:"https://github.com/arnavanand2005/REACTJS-TO-DO-LIST"
+    },
+    {
+      title : "EduSity Website",
+      description:"A responsive educational platform website with sections for courses, testimonials, and a contact form.",
+      techStack: ["CSS", "Reactjs"],
+      image: "../assets/edusity.png",
+      demo:"https://edusity-website.vercel.app",
+      github:"https://github.com/arnavanand2005/EduSity-"
     }
   ]
   return (
     <div>
       <h1 className='text-4xl'>Projects</h1>
-
-      
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-4'>
+      </div>
     </div>
   )
 }
