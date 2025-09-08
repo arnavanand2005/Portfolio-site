@@ -30,7 +30,7 @@ const Home = () => {
           transition={{ duration: 1 }}
         >
           <motion.h2
-            className="text-lg sm:text-xl md:text-2xl mb-4 inline-block px-4 py-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg"
+            className="text-lg sm:text-xl md:text-2xl mb-4 inline-block px-4 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
