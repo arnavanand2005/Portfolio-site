@@ -5,6 +5,7 @@ import todoimg from '../assets/todo.png';
 import edusityimg from '../assets/edusity.png';
 import sqacimg from '../assets/sqac.png';
 import mineverse from '../assets/mineverse.png';
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
@@ -59,24 +60,40 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white p-6 md:p-8 lg:p-12">
+    <div id="projects" className="relative min-h-screen text-white p-6 md:p-8 lg:p-12 overflow-hidden">
+      {/* Space Themed Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-950 via-purple-950 to-black">
+        {/* Stars effect */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
+      </div>
+
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-indigo-300">
+        <motion.div
+          className="text-center mb-12 md:mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-indigo-300 drop-shadow-lg">
             My Projects
           </h1>
           <p className="text-lg text-purple-200 max-w-2xl mx-auto">
             Here's a collection of my recent work. Each project represents my passion for creating beautiful, functional web experiences.
           </p>
-        </div>
+        </motion.div>
         
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-purple-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10"
+              className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 transition-all duration-500"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -12, scale: 1.02 }}
             >
               {/* Image Container */}
               <div className="relative overflow-hidden">
@@ -89,7 +106,7 @@ const Projects = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
                 <div className="absolute top-4 right-4">
-                  <span className="bg-purple-600 text-xs font-semibold px-2.5 py-1 rounded-full">
+                  <span className="bg-purple-600 text-xs font-semibold px-2.5 py-1 rounded-full shadow-md shadow-purple-900/50">
                     Project {index + 1}
                   </span>
                 </div>
@@ -97,22 +114,23 @@ const Projects = () => {
               
               {/* Content Container */}
               <div className="p-5 md:p-6">
-                <h2 className="text-xl md:text-2xl font-bold mb-2 text-indigo-200 group-hover:text-purple-300 transition-colors">
+                <h2 className="text-xl md:text-2xl font-bold mb-2 text-indigo-200 group-hover:text-purple-300 transition-colors drop-shadow-md">
                   {project.title}
                 </h2>
                 <p className="text-gray-300 mb-4 text-sm md:text-base">
                   {project.description}
                 </p>
                 
-                {/* Tech Stack with Wiggle Bubbly Effect */}
+                {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-5">
                   {project.techStack.map((tech, i) => (
-                    <span
+                    <motion.span
                       key={i}
-                      className="tech-bubble bg-purple-900/50 text-purple-200 text-xs font-medium px-3 py-1.5 rounded-full border border-purple-700/30 hover:animate-wiggle hover:bg-purple-700 hover:text-white hover:shadow-md hover:shadow-purple-500/50 transition-all duration-300 cursor-default"
+                      className="tech-bubble bg-purple-900/50 text-purple-200 text-xs font-medium px-3 py-1.5 rounded-full border border-purple-700/30 shadow-md cursor-default"
+                      whileHover={{ scale: 1.1, rotate: 2 }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
                 
@@ -122,7 +140,7 @@ const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-1.5 group-hover:shadow-lg group-hover:shadow-blue-500/20"
+                    className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-1.5 shadow-md hover:shadow-blue-600/40"
                   >
                     <span>Live Demo</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -133,7 +151,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-1.5"
+                    className="flex-1 bg-gray-700 hover:bg-gray-600 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 text-center flex items-center justify-center gap-1.5 shadow-md hover:shadow-gray-500/40"
                   >
                     <span>Code</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -142,78 +160,22 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
         {/* Footer Note */}
-        <div className="text-center mt-12 pt-8 border-t border-gray-700/30">
+        <motion.div
+          className="text-center mt-12 pt-8 border-t border-gray-700/30"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           <p className="text-purple-200 text-sm">
             Interested in working together? I'm always open to discussing new projects and opportunities.
           </p>
-        </div>
+        </motion.div>
       </div>
-
-      {/* Custom styles for the wiggle bubbly effect */}
-      <style jsx>{`
-        @keyframes wiggle {
-          0%, 7% {
-            transform: rotateZ(0);
-          }
-          15% {
-            transform: rotateZ(-5deg);
-          }
-          20% {
-            transform: rotateZ(4deg);
-          }
-          25% {
-            transform: rotateZ(-4deg);
-          }
-          30% {
-            transform: rotateZ(3deg);
-          }
-          35% {
-            transform: rotateZ(-2deg);
-          }
-          40%, 100% {
-            transform: rotateZ(0);
-          }
-        }
-        
-        .hover\:animate-wiggle:hover {
-          animation: wiggle 0.8s ease;
-        }
-        
-        .tech-bubble {
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .tech-bubble:hover::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 120%;
-          height: 120%;
-          background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 0;
-          border-radius: 50%;
-          animation: bubble 0.5s ease-out;
-        }
-        
-        @keyframes bubble {
-          0% {
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 0;
-          }
-        }
-      `}</style>
     </div>
   );
 };

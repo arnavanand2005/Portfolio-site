@@ -7,23 +7,33 @@ import { RiTailwindCssLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { SiMongodb, SiExpress } from "react-icons/si";
 import profile from '../assets/profile.jpeg'
-
+import { motion } from "framer-motion";
 
 const About = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16 text-white">
+    <div id="about" className="relative min-h-screen flex flex-col items-center justify-center px-6 py-16 text-white">
       
       {/* Background */}
       <div className="absolute inset-0 -z-10 h-full w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       
       {/* Content Wrapper */}
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 bg-white/10 backdrop-blur-lg rounded-2xl p-10 shadow-xl border border-white/20">
+      <motion.div 
+        className="max-w-6xl w-full flex flex-col md:flex-row items-center gap-12 bg-white/10 backdrop-blur-lg rounded-2xl p-10 shadow-xl border border-white/20"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         
         {/* Left: Text */}
-        <div className="flex-1 text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-wide">
+        <motion.div 
+          className="flex-1 text-left"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          <h1 className="text-4xl text-purple-400 md:text-5xl font-extrabold mb-6 tracking-wide">
             About Me
           </h1>
           <p className="text-base md:text-lg leading-relaxed opacity-90">
@@ -41,7 +51,12 @@ const About = () => {
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-6">
+          <motion.div 
+            className="mt-8 flex flex-col sm:flex-row gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
             <button 
               onClick={() => navigate('/projects')}
               className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300"
@@ -62,21 +77,34 @@ const About = () => {
               />
               <span className="font-medium">View Resume</span>
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Right: Profile */}
-        <div className="flex-1 flex justify-center">
-          <img 
+        <motion.div 
+          className="flex-1 flex justify-center"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          <motion.img 
             src={profile} 
             alt="profile-pic" 
-            className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg border-4 border-white/20 hover:scale-105 hover:shadow-2xl transition duration-300"
+            className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-lg border-4 border-white/20"
+            whileHover={{ scale: 1.08, rotate: 2 }}
+            transition={{ type: "spring", stiffness: 200 }}
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Tech Stack */}
-      <div className="mt-16 text-center">
+      <motion.div 
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
         <h2 className="text-2xl md:text-3xl font-bold mb-10">My Tech Stack</h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8 justify-items-center">
           {[ 
@@ -89,15 +117,19 @@ const About = () => {
             {icon: <SiMongodb />, color: "hover:text-green-500"},
             {icon: <SiExpress />, color: "hover:text-gray-300"}
           ].map((tech, i) => (
-            <div 
+            <motion.div 
               key={i} 
               className="p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-md hover:shadow-xl transform hover:scale-110 transition duration-300 text-5xl cursor-pointer"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              viewport={{ once: true }}
             >
               <div className={`${tech.color}`}>{tech.icon}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

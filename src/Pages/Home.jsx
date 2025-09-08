@@ -30,7 +30,7 @@ const Home = () => {
           transition={{ duration: 1 }}
         >
           <motion.h2
-            className="text-lg sm:text-xl md:text-2xl mb-4 inline-block px-4 py-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg"
+            className="text-lg sm:text-xl md:text-2xl mb-4 inline-block px-4 py-1 bg-gradient-to-r from-yellow-600 to-blue-600 rounded-lg"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -107,8 +107,14 @@ const Home = () => {
         {/* RIGHT SIDE - FLOATING ASTRONAUT */}
         <motion.div
           className="flex justify-center md:justify-end"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ y: 0 }} // starting position
+          animate={{ y: [0, -20, 0] }} // animate up & down
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
         >
           <img src={astronaut} alt="Astronaut" className="w-64 md:w-96" />
         </motion.div>
