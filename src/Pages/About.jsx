@@ -23,7 +23,7 @@ const About = () => {
         {/* Left: Text */}
         <div className="flex-1 text-left">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-wide">
-            About Us
+            About Me
           </h1>
           <p className="text-base md:text-lg leading-relaxed opacity-90">
             I’m a passionate and curious learner who enjoys building practical, user-friendly, and creative solutions. 
