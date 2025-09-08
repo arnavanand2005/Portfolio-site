@@ -17,7 +17,7 @@ const Navbar = () => {
         
         {/* Logo */}
         <Link to="/" className="text-white text-2xl font-extrabold tracking-wide hover:text-blue-400 transition">
-          ArnAv AnAnd
+          Arnav Anand
         </Link>
 
         {/* Desktop menu */}
