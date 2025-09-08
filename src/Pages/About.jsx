@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { SiMongodb, SiExpress } from "react-icons/si";
 import profile from '../assets/profile.jpeg'
 
+
 const About = () => {
   const navigate = useNavigate()
 
