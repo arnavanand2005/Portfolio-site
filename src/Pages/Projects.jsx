@@ -46,7 +46,7 @@ const Projects = () => {
       description: 'A responsive website for the SQAC Club/Community of SRMIST, featuring sections for events, team members, and projects.',
       techStack: ['Tailwind Css', 'Reactjs'],
       image: sqacimg,
-      demo: 'https://sqac-club-website.vercel.app',
+      demo: 'https://sqac-website.vercel.app',
       github: 'https://github.com/SQAC-Tech/sqac-website',
     },
     {
